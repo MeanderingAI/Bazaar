@@ -4,6 +4,13 @@ package bazaar;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The possible attributes to an html node
+ * <xml {attribute_list}>
+ * </xml>
+ * 
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
+ */
 public class HttpAttributeList {
     private List<HttpAttributePair> pairs;
 
