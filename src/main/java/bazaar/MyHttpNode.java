@@ -198,7 +198,7 @@ public class MyHttpNode {
         this.single_tag = false;
     }
 
-    public MyHttpNode(HttpTag httpTag, MyHttpNode... myHttpNode) {this.listNode = false;
+    public MyHttpNode(HttpTag httpTag, MyHttpNode... myHttpNode) {
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
         this.inputType = null;

@@ -1,6 +1,6 @@
 package bazaar;
 
-import ai.meandering.bazaar.Utils;
+import bazaar.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
