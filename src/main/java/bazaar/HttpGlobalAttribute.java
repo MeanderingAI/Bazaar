@@ -1,5 +1,9 @@
 package bazaar;
 
+/*
+ * Enum for all the global attributes.
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
+ */
 public enum HttpGlobalAttribute {
     ACCESS_KEY("access_key"),
     ANCHOR("anchor"), //Experimental Limited Support

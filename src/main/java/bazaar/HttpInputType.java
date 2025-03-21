@@ -1,5 +1,8 @@
 package bazaar;
 
+/*
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
+ */
 public enum HttpInputType {
     BUTTON("button"), CHECKBOX("checkbox"),
     COLOR("color"), DATE("date"), DATETIMELOCAL("datetime-local"),

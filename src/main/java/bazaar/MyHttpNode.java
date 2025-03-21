@@ -2,9 +2,10 @@ package bazaar;
 
 import java.util.Map;
 
+/**
+ * Represents a node in an HTML document.
+ */
 public class MyHttpNode {
-    private boolean listNode;
-    //private CSSBank cssBank;
     private HttpTagWrapper httpTagWrapper;
     private HttpAttributeList attributes;
     private HttpInputType inputType;
@@ -12,8 +13,11 @@ public class MyHttpNode {
     private String inner_content;
     private boolean single_tag;
 
+    /**
+     * Default constructor
+     * Should only be used for testing
+     */
     public MyHttpNode() {
-        this.listNode = true;
         this.httpTagWrapper = new HttpTagWrapper(HttpTag.ERROR);
         this.attributes = new HttpAttributeList();
         this.inputType = null;
@@ -22,8 +26,10 @@ public class MyHttpNode {
         this.single_tag = false;
     }
 
+    /**
+     * @param httpTag Tag of the node.
+     */
     public MyHttpNode(HttpTag httpTag) {
-        this.listNode = true;
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -32,9 +38,10 @@ public class MyHttpNode {
         this.single_tag = false;
     }
 
-
+    /**
+     * @param httpTagWrapper of the node.
+     */
     public MyHttpNode(HttpTagWrapper httpTagWrapper) {
-        this.listNode = true;
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = httpTagWrapper;
         this.attributes = new HttpAttributeList();
@@ -42,9 +49,15 @@ public class MyHttpNode {
         this.inner_content = "";
         this.single_tag = false;
     }
-
+    
+    /**
+     * @param httpTag of the node.
+     * @param single_tag if the node is a single tag.
+     * 
+     * If single_tag is set to true node is self-closing
+     * Example: <br />
+     */
     public MyHttpNode(HttpTag httpTag, boolean single_tag) {
-        this.listNode = true;
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -53,9 +66,12 @@ public class MyHttpNode {
         this.single_tag = single_tag;
     }
 
+    /**
+     * Constructs a node which has the tag and attributePair provided
+     * @param httpTag
+     * @param attribute
+     */
     public MyHttpNode(HttpTag httpTag, HttpAttributePair attribute) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -65,8 +81,12 @@ public class MyHttpNode {
         this.single_tag = false;
     }
 
+    /**
+     * Constructs a node which has the tag provided
+     * @param httpTag
+     * @param inner_content content inside the node
+     */
     public MyHttpNode(HttpTag httpTag, String inner_content) {
-        this.listNode = true;
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -75,9 +95,12 @@ public class MyHttpNode {
         this.single_tag = false;
     }
 
+    /**
+     * Constructs a node which has the tag provided
+     * @param httpTag
+     * @param inputType 
+     */
     public MyHttpNode(HttpTag httpTag, HttpInputType inputType) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -85,10 +108,13 @@ public class MyHttpNode {
         this.inner_content = "";
         this.single_tag = false;
     }
-
+    
+    /**
+     * Constructs a node which has the tag provided
+     * @param httpTag
+     * @param inputType 
+     */
     public MyHttpNode(HttpTag httpTag, HttpInputType inputType, String inner_content) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -98,8 +124,6 @@ public class MyHttpNode {
     }
 
     public MyHttpNode(HttpTag httpTag, boolean single_tag, HttpAttributePair... pairs) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -112,8 +136,6 @@ public class MyHttpNode {
     }
 
     public MyHttpNode(HttpTag httpTag, HttpAttributePair... pairs) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
@@ -127,8 +149,6 @@ public class MyHttpNode {
 
 
     public MyHttpNode(HttpTag httpTag, boolean single_tag, HttpAttributeList list) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.children = new MyHttpNodeList();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = list;
@@ -138,8 +158,6 @@ public class MyHttpNode {
     }
 
     public MyHttpNode(HttpTag httpTag, MyHttpNode child) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.children = new MyHttpNodeList();
         this.children.add(child);
 
@@ -151,8 +169,6 @@ public class MyHttpNode {
     }
 
     public MyHttpNode(HttpTag httpTag, MyHttpNodeList childrenList) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
         this.inputType = null;
@@ -162,8 +178,6 @@ public class MyHttpNode {
     }
 
     public MyHttpNode(HttpTag httpTag, HttpAttributePair attribute, String inner_content) {
-        this.listNode = true;
-        //this.cssBank = CSSBank.getInstance();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
         this.attributes.add(attribute);
@@ -174,8 +188,6 @@ public class MyHttpNode {
     }
 
     public MyHttpNode(HttpTag httpTag, HttpAttributePair attribute, MyHttpNode child) {
-        this.listNode = false;
-        //this.cssBank = CSSBank.getInstance();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
         this.attributes.add(attribute);
@@ -187,7 +199,6 @@ public class MyHttpNode {
     }
 
     public MyHttpNode(HttpTag httpTag, MyHttpNode... myHttpNode) {this.listNode = false;
-        //this.cssBank = CSSBank.getInstance();
         this.httpTagWrapper = new HttpTagWrapper(httpTag);
         this.attributes = new HttpAttributeList();
         this.inputType = null;
@@ -199,32 +210,51 @@ public class MyHttpNode {
         this.single_tag = false;
     }
 
+    /**
+     * @param e new node to add as child
+     */
     public void add(MyHttpNode e) {
         this.children.add(e);
     }
 
+    /**
+     * 
+     * @param es nodes to add as children
+     */
     public void add(MyHttpNode... es) {
         for(MyHttpNode e : es) {
             this.children.add(e);
         }
     }
 
+    /**
+     * @param list list of nodes to add as children
+     */
     public void add(MyHttpNodeList list) {
         for(Map.Entry<String, MyHttpNode> entry : list.entrySet()) {
             this.children.add(entry.getValue());
         }
     }
-
+    
+    /**
+     * @param lists list of nodes to add as children
+     */
     public void add(MyHttpNodeList... lists) {
         for(MyHttpNodeList list : lists) {
             this.add(list);
         }
     }
 
+    /**
+     * @param lists list of nodes to add as children
+     */
     public void SetInnerContent(String inner_content) {
         this.inner_content = inner_content;
     }
 
+    /**
+     * @return String representation of the opening tag
+     */
     private String toOpenTag() {
         StringBuilder sb = new StringBuilder();
         sb.append('<');
@@ -243,6 +273,10 @@ public class MyHttpNode {
 
         return sb.toString();
     }
+
+    /**
+     * @return String representation of the closing tag
+     */
     private String toClosingTag() {
         StringBuilder sb = new StringBuilder();
         sb.append("</");
@@ -251,12 +285,12 @@ public class MyHttpNode {
         return sb.toString();
     }
 
+    /**
+     * @return String representation of the node
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        //if(this.httpTagWrapper.equals(HttpTag.LINK)) {
-        //    sb.append(this.expandLinkTag());
-        //} else {
         sb.append(this.toOpenTag());
         if (!this.single_tag) {
             if (this.inner_content != "") {
@@ -267,43 +301,7 @@ public class MyHttpNode {
             }
             sb.append(this.toClosingTag());
         }
-        //}
         return sb.toString();
-    }
-
-    @Deprecated
-    private String expandLinkTag() throws RuntimeException {
-        if(!this.httpTagWrapper.equals(HttpTag.LINK)) {
-            throw new RuntimeException("Expected type to be of link and have a single tag");
-        }
-        if(this.single_tag != true) {
-            throw new RuntimeException("Expected type to be of link and have a single tag");
-        }
-        if(!this.attributes.contains(HttpSpecialAttribute.HREF)) {
-            throw new RuntimeException("Expected href attribute");
-        }
-        if(!this.attributes.contains(HttpNormalAttribute.REL)) {
-            throw new RuntimeException("Expected rel tag");
-        }
-        /*
-        String rel_key = this.attributes.key(HttpNormalAttribute.REL);
-        if (rel_key != "stylesheet"){
-            throw new RuntimeException("Expected stylesheet as rel.");
-        }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("<style>");
-        String href_key = this.attributes.key(HttpSpecialAttribute.HREF);
-        CssDef css = this.cssBank.get(href_key);
-        if(css != null) {
-            sb.append(css.toString());
-        }
-        sb.append("</style>");
-
-        return sb.toString();
-
-         */
-        return "";
     }
 
 }

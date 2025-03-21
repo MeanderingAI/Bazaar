@@ -2,18 +2,30 @@ package bazaar;
 
 import java.util.Objects;
 
+/**
+ * A wrapper class for HttpTag to allow for custom tags
+ */
 public class HttpTagWrapper {
     private HttpTag tag;
     private String customTag;
 
+    /*
+     * @param tag the tag we intend to wrap
+     */
     public HttpTagWrapper(HttpTag tag) {
         this.tag = tag;
     }
 
+    /*
+     * @param customElement name of a custom element
+     */
     public HttpTagWrapper(String customElement) {
         this.customTag = customElement;
     }
 
+    /*
+     * @return the string representation of the tag
+     */
     public String toString() {
         if (tag != null) {
             return tag.toString();
@@ -22,6 +34,11 @@ public class HttpTagWrapper {
         }
     }
 
+    /**
+     * @return string representation of the opening tag 
+     * 
+     * "<customTag>"
+     */
     public String toOpenTag() {
         if (tag != null) {
             return tag.toOpenTag();
@@ -34,6 +51,10 @@ public class HttpTagWrapper {
         }
     }
 
+    /**
+     * @return string representation of the closing tag
+     * "</customTag>"
+     */
     public String toCloseTag() {
         if(tag != null) {
             return tag.toCloseTag();

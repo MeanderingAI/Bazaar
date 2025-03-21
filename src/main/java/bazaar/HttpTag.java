@@ -1,5 +1,9 @@
 package bazaar;
 
+/**
+ * The possible tags for an html node
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+ */
 public enum HttpTag {
     A("a"), ABBR("abbr"), ADDRESS("address"),
     AREA("area"), ARTICLE("article"), ASIDE("aside"),
