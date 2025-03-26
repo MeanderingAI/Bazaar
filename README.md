@@ -16,9 +16,12 @@ An example html page would then be;
 ```
 import bazaar.HtmlPage;
 import bazaar.MyHttpNodeList;
+import bazaar.HttpTag
+import bazaar.HttpAttributePair;
+import bazaar.HttpGlobalAttribute;
 
 public class WelcomePage extends HtmlPage {
-    private myHttpNodeList nodes;
+    private MyHttpNodeList nodes;
 
     public WelcomePage() {
         nodes = new MyHttpNodeList();
@@ -28,10 +31,7 @@ public class WelcomePage extends HtmlPage {
 
 
         MyHttpNode head = new MyHttpNode(HttpTag.HEAD);
-        MyHttpNodeList meta_tags = MyHttpNodeFactory.makeBaseHeadTags();
-        MyHttpNodeList css_tags = MyHttpNodeFactory.makeBaseStyleSheets();
         MyHttpNode title_tag = new MyHttpNode(HttpTag.TITLE, "Hello World");
-        head.add(meta_tags, css_tags);
         head.add(title_tag);
         htmlTag.add(head);
 
