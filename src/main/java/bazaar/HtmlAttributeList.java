@@ -37,7 +37,7 @@ public class HtmlAttributeList {
         this.pairs.add(attributePair);
     }
 
-    public boolean contains(HtmlNormalAttribute attribute) {
+    public boolean contains(HtmlAttribute attribute) {
         for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return true;
@@ -46,43 +46,7 @@ public class HtmlAttributeList {
         return false;
     }
 
-    public boolean contains(HtmlSpecialAttribute attribute) {
-        for(HtmlAttributePair pair : this.pairs ) {
-            if(pair.matchesTag(attribute)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean contains(HtmlGlobalAttribute attribute) {
-        for(HtmlAttributePair pair : this.pairs ) {
-            if(pair.matchesTag(attribute)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public String key(HtmlNormalAttribute attribute) throws RuntimeException {
-        for(HtmlAttributePair pair : this.pairs ) {
-            if(pair.matchesTag(attribute)) {
-                return pair.getKey();
-            }
-        }
-        throw new RuntimeException("Could not find key.");
-    }
-
-    public String key(HtmlSpecialAttribute attribute) throws RuntimeException {
-        for(HtmlAttributePair pair : this.pairs ) {
-            if(pair.matchesTag(attribute)) {
-                return pair.getKey();
-            }
-        }
-        throw new RuntimeException("Could not find key.");
-    }
-
-    public String key(HtmlGlobalAttribute attribute) throws RuntimeException {
+    public String key(HtmlAttribute attribute) throws RuntimeException {
         for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return pair.getKey();

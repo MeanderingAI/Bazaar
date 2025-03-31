@@ -1,10 +1,16 @@
 package bazaar;
 
-/*
- * Enum for all the global attributes.
+/**
+ * The possible special attributes to an html node
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Special_attributes
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
  */
-public enum HtmlGlobalAttribute {
+public enum HtmlAttribute {
+    //special
+    NAME("name"), CONTENT("content"), CHARSET("charset"), 
+    HREF("href"), SRC("src"), TYPE("type"),
+    //global
     ACCESS_KEY("access_key"),
     ANCHOR("anchor"), //Experimental Limited Support
     AUTOCAPITALIZE("autocapitalize"),
@@ -16,9 +22,19 @@ public enum HtmlGlobalAttribute {
     ITEMTYPE("itemtype"), LANG("lang"), NONCE("nonce"), PART("part"), POPOVER("popover"), SLOT("slot"),
     SPELLCHECK("spellcheck"), STYLE("style"), TABINDEX("tabindex"), TITLE("title"), TRANSLATE("translate"),
     VIRTUALKEYBOARDPOLICY("virtualkeyboardpolicy"), //Experimental
-    WRITINGSUGGESTIONS("writingsuggestions");
+    WRITINGSUGGESTIONS("writingsuggestions"),
+    //normal
+    ACCEPT("accept"), AUTOCOMPLETE("autocomplete"),
+    CAPTURE("capture"), CROSS_ORIGIN("crossorigin"),
+    DIRNAME("dirname"), DISABLED("disabled"),
+    ELEMENT_TIMING("elementtiming"), FOR("for"),
+    MAX("max"), MAXLENGTH("maxlength"), MIN("min"),
+    MIN_LENGTH("minlength"), MULTIPLE("multiple"),
+    PATTERN("pattern"), PLACEHOLDER("placeholder"),
+    READONLY("readonly"), REL("rel"), REQUIRED("required"),
+    SIZE("size"), STEP("step");
 
     private final String attribute;
 
-    HtmlGlobalAttribute(String attribute) {this.attribute = attribute;}
+    HtmlAttribute(String attribute) {this.attribute = attribute;}
 }
