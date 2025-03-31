@@ -25,13 +25,13 @@ public class WelcomePage extends HtmlPage {
 
     public WelcomePage() {
         nodes = new HtmlNodeList();
-        nodes.add(new HtmlNode(HttpTag.DOCTYPE, true));
+        nodes.add(new HtmlNode(HtmlTag.DOCTYPE, true));
 
         HtmlNode htmlTag = new HtmlNode(HtmlTag.HTML, new HtmlAttributePair(HtmlGlobalAttribute.LANG, "en"));
 
 
-        HtmlNode head = new HtmlNode(HttpTag.HEAD);
-        HtmlNode title_tag = new HttpNode(HttpTag.TITLE, "Hello World");
+        HtmlNode head = new HtmlNode(HtmlTag.HEAD);
+        HtmlNode title_tag = new HtmlNode(HtmlTag.TITLE, "Hello World");
         head.add(title_tag);
         htmlTag.add(head);
 
