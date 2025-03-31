@@ -25,7 +25,7 @@ public class WelcomePage extends HtmlPage {
 
     public WelcomePage() {
         nodes = new HtmlNodeList();
-        nodes.add(new HtmlNode(HttpTag.DOCTYPE, true));
+        nodes.add(new HtmlNode(HtmlTag.DOCTYPE, true));
 
         HtmlNode htmlTag = new HtmlNode(HtmlTag.HTML, new HtmlAttributePair(HtmlGlobalAttribute.LANG, "en"));
 
