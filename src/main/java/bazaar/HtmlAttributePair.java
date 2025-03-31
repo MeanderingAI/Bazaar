@@ -5,10 +5,10 @@ package bazaar;
  * HttpGlobalAttribute, HttpNormalAttribute, HttpSpecialAttribute
  * This class is used with HttpAttributeList.
  */
-public class HttpAttributePair {
-    private HttpGlobalAttribute gAttribute;
-    private HttpNormalAttribute hAttribute;
-    private HttpSpecialAttribute sAttribute;
+public class HtmlAttributePair {
+    private HtmlGlobalAttribute gAttribute;
+    private HtmlNormalAttribute hAttribute;
+    private HtmlSpecialAttribute sAttribute;
     private String key;
 
     /*
@@ -17,7 +17,7 @@ public class HttpAttributePair {
      * Construct a pair with a global attribute.
      * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/
      */
-    public HttpAttributePair(HttpGlobalAttribute attribute) {
+    public HtmlAttributePair(HtmlGlobalAttribute attribute) {
         this.gAttribute = attribute;
         this.hAttribute = null;
         this.sAttribute = null;
@@ -30,7 +30,7 @@ public class HttpAttributePair {
      * Construct a pair with a normal attribute.
      * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
      */
-    public HttpAttributePair(HttpNormalAttribute attribute) {
+    public HtmlAttributePair(HtmlNormalAttribute attribute) {
         this.gAttribute = null;
         this.hAttribute = attribute;
         this.sAttribute = null;
@@ -42,20 +42,20 @@ public class HttpAttributePair {
      * 
      * Construct a pair with a special attribute.
      */
-    public HttpAttributePair(HttpSpecialAttribute attribute) {
+    public HtmlAttributePair(HtmlSpecialAttribute attribute) {
         this.gAttribute = null;
         this.hAttribute = null;
         this.sAttribute = attribute;
         this.key = null;
     }
 
-    public HttpAttributePair(HttpGlobalAttribute attribute, String key) {
+    public HtmlAttributePair(HtmlGlobalAttribute attribute, String key) {
         this.gAttribute = attribute;
         this.hAttribute = null;
         this.sAttribute = null;
         this.key = key;
     }
-    public HttpAttributePair(HttpNormalAttribute attribute, String key) {
+    public HtmlAttributePair(HtmlNormalAttribute attribute, String key) {
         this.gAttribute = null;
         this.hAttribute = attribute;
         this.sAttribute = null;
@@ -70,7 +70,7 @@ public class HttpAttributePair {
      * <xml attribute="key">
      * </xml>
      */
-    public HttpAttributePair(HttpSpecialAttribute attribute, String key) {
+    public HtmlAttributePair(HtmlSpecialAttribute attribute, String key) {
         this.gAttribute = null;
         this.hAttribute = null;
         this.sAttribute = attribute;
@@ -81,7 +81,7 @@ public class HttpAttributePair {
      * @param attribute the attribute to match against
      * @return true if the attribute matches
      */
-    public boolean matchesTag(HttpNormalAttribute attribute) {
+    public boolean matchesTag(HtmlNormalAttribute attribute) {
         return this.hAttribute == attribute;
     }
 
@@ -89,7 +89,7 @@ public class HttpAttributePair {
      * @param attribute the attribute to match against
      * @return true if the attribute matches
      */
-    public boolean matchesTag(HttpSpecialAttribute attribute) {
+    public boolean matchesTag(HtmlSpecialAttribute attribute) {
         return this.sAttribute == attribute;
     }
 
@@ -97,7 +97,7 @@ public class HttpAttributePair {
      * @param attribute the attribute to match against
      * @return true if the attribute matches
      */
-    public boolean matchesTag(HttpGlobalAttribute attribute) {
+    public boolean matchesTag(HtmlGlobalAttribute attribute) {
         return this.gAttribute == attribute;
     }
     

@@ -5,11 +5,11 @@ import java.util.Map;
 /**
  * Represents a node in an HTML document.
  */
-public class MyHttpNode {
-    private HttpTagWrapper httpTagWrapper;
-    private HttpAttributeList attributes;
-    private HttpInputType inputType;
-    private MyHttpNodeList children;
+public class HtmlNode {
+    private HtmlTagWrapper httpTagWrapper;
+    private HtmlAttributeList attributes;
+    private HtmlInputType inputType;
+    private HtmlNodeList children;
     private String inner_content;
     private boolean single_tag;
 
@@ -17,11 +17,11 @@ public class MyHttpNode {
      * Default constructor
      * Should only be used for testing
      */
-    public MyHttpNode() {
-        this.httpTagWrapper = new HttpTagWrapper(HttpTag.ERROR);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode() {
+        this.httpTagWrapper = new HtmlTagWrapper(HtmlTag.ERROR);
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
-        this.children = new MyHttpNodeList();
+        this.children = new HtmlNodeList();
         this.inner_content = "";
         this.single_tag = false;
     }
@@ -29,10 +29,10 @@ public class MyHttpNode {
     /**
      * @param httpTag Tag of the node.
      */
-    public MyHttpNode(HttpTag httpTag) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
         this.inner_content = "";
         this.single_tag = false;
@@ -41,10 +41,10 @@ public class MyHttpNode {
     /**
      * @param httpTagWrapper of the node.
      */
-    public MyHttpNode(HttpTagWrapper httpTagWrapper) {
-        this.children = new MyHttpNodeList();
+    public HtmlNode(HtmlTagWrapper httpTagWrapper) {
+        this.children = new HtmlNodeList();
         this.httpTagWrapper = httpTagWrapper;
-        this.attributes = new HttpAttributeList();
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
         this.inner_content = "";
         this.single_tag = false;
@@ -57,10 +57,10 @@ public class MyHttpNode {
      * If single_tag is set to true node is self-closing
      * Example: <br />
      */
-    public MyHttpNode(HttpTag httpTag, boolean single_tag) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, boolean single_tag) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
         this.inner_content = "";
         this.single_tag = single_tag;
@@ -71,10 +71,10 @@ public class MyHttpNode {
      * @param httpTag
      * @param attribute
      */
-    public MyHttpNode(HttpTag httpTag, HttpAttributePair attribute) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, HtmlAttributePair attribute) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.attributes.add(attribute);
         this.inputType = null;
         this.inner_content = "";
@@ -86,10 +86,10 @@ public class MyHttpNode {
      * @param httpTag
      * @param inner_content content inside the node
      */
-    public MyHttpNode(HttpTag httpTag, String inner_content) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, String inner_content) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
         this.inner_content = inner_content;
         this.single_tag = false;
@@ -100,10 +100,10 @@ public class MyHttpNode {
      * @param httpTag
      * @param inputType 
      */
-    public MyHttpNode(HttpTag httpTag, HttpInputType inputType) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, HtmlInputType inputType) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = inputType;
         this.inner_content = "";
         this.single_tag = false;
@@ -114,20 +114,20 @@ public class MyHttpNode {
      * @param httpTag
      * @param inputType 
      */
-    public MyHttpNode(HttpTag httpTag, HttpInputType inputType, String inner_content) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, HtmlInputType inputType, String inner_content) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = inputType;
         this.inner_content = inner_content;
         this.single_tag = false;
     }
 
-    public MyHttpNode(HttpTag httpTag, boolean single_tag, HttpAttributePair... pairs) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
-        for(HttpAttributePair pair : pairs) {
+    public HtmlNode(HtmlTag httpTag, boolean single_tag, HtmlAttributePair... pairs) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
+        for(HtmlAttributePair pair : pairs) {
             this.attributes.add(pair);
         }
         this.inputType = null;
@@ -135,11 +135,11 @@ public class MyHttpNode {
         this.single_tag = single_tag;
     }
 
-    public MyHttpNode(HttpTag httpTag, HttpAttributePair... pairs) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
-        for(HttpAttributePair pair : pairs) {
+    public HtmlNode(HtmlTag httpTag, HtmlAttributePair... pairs) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
+        for(HtmlAttributePair pair : pairs) {
             this.attributes.add(pair);
         }
         this.inputType = null;
@@ -148,62 +148,62 @@ public class MyHttpNode {
     }
 
 
-    public MyHttpNode(HttpTag httpTag, boolean single_tag, HttpAttributeList list) {
-        this.children = new MyHttpNodeList();
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
+    public HtmlNode(HtmlTag httpTag, boolean single_tag, HtmlAttributeList list) {
+        this.children = new HtmlNodeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
         this.attributes = list;
         this.inputType = null;
         this.inner_content = "";
         this.single_tag = single_tag;
     }
 
-    public MyHttpNode(HttpTag httpTag, MyHttpNode child) {
-        this.children = new MyHttpNodeList();
+    public HtmlNode(HtmlTag httpTag, HtmlNode child) {
+        this.children = new HtmlNodeList();
         this.children.add(child);
 
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
         this.inner_content = "";
         this.single_tag = false;
     }
 
-    public MyHttpNode(HttpTag httpTag, MyHttpNodeList childrenList) {
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, HtmlNodeList childrenList) {
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
         this.children = childrenList;
         this.inner_content = "";
         this.single_tag = false;
     }
 
-    public MyHttpNode(HttpTag httpTag, HttpAttributePair attribute, String inner_content) {
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, HtmlAttributePair attribute, String inner_content) {
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.attributes.add(attribute);
         this.inputType = null;
-        this.children = new MyHttpNodeList();
+        this.children = new HtmlNodeList();
         this.inner_content = inner_content;
         this.single_tag = false;
     }
 
-    public MyHttpNode(HttpTag httpTag, HttpAttributePair attribute, MyHttpNode child) {
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, HtmlAttributePair attribute, HtmlNode child) {
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.attributes.add(attribute);
         this.inputType = null;
-        this.children = new MyHttpNodeList();
+        this.children = new HtmlNodeList();
         this.children.add(child);
         this.inner_content = "";
         this.single_tag = false;
     }
 
-    public MyHttpNode(HttpTag httpTag, MyHttpNode... myHttpNode) {
-        this.httpTagWrapper = new HttpTagWrapper(httpTag);
-        this.attributes = new HttpAttributeList();
+    public HtmlNode(HtmlTag httpTag, HtmlNode... myHttpNode) {
+        this.httpTagWrapper = new HtmlTagWrapper(httpTag);
+        this.attributes = new HtmlAttributeList();
         this.inputType = null;
-        this.children = new MyHttpNodeList();
-        for(MyHttpNode node : myHttpNode) {
+        this.children = new HtmlNodeList();
+        for(HtmlNode node : myHttpNode) {
             this.children.add(node);
         }
         this.inner_content = "";
@@ -213,7 +213,7 @@ public class MyHttpNode {
     /**
      * @param e new node to add as child
      */
-    public void add(MyHttpNode e) {
+    public void add(HtmlNode e) {
         this.children.add(e);
     }
 
@@ -221,8 +221,8 @@ public class MyHttpNode {
      * 
      * @param es nodes to add as children
      */
-    public void add(MyHttpNode... es) {
-        for(MyHttpNode e : es) {
+    public void add(HtmlNode... es) {
+        for(HtmlNode e : es) {
             this.children.add(e);
         }
     }
@@ -230,8 +230,8 @@ public class MyHttpNode {
     /**
      * @param list list of nodes to add as children
      */
-    public void add(MyHttpNodeList list) {
-        for(Map.Entry<String, MyHttpNode> entry : list.entrySet()) {
+    public void add(HtmlNodeList list) {
+        for(Map.Entry<String, HtmlNode> entry : list.entrySet()) {
             this.children.add(entry.getValue());
         }
     }
@@ -239,8 +239,8 @@ public class MyHttpNode {
     /**
      * @param lists list of nodes to add as children
      */
-    public void add(MyHttpNodeList... lists) {
-        for(MyHttpNodeList list : lists) {
+    public void add(HtmlNodeList... lists) {
+        for(HtmlNodeList list : lists) {
             this.add(list);
         }
     }

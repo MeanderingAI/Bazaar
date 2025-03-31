@@ -4,7 +4,7 @@ package bazaar;
  * The possible tags for an html node
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element
  */
-public enum HttpTag {
+public enum HtmlTag {
     A("a"), ABBR("abbr"), ADDRESS("address"),
     AREA("area"), ARTICLE("article"), ASIDE("aside"),
     AUDIO("audio"), B("b"), BASE("base"), BDI("bdi"),
@@ -36,7 +36,7 @@ public enum HttpTag {
 
     private final String tag;
 
-    HttpTag(String tag) {this.tag = tag;}
+    HtmlTag(String tag) {this.tag = tag;}
 
     public String toString() {return tag;}
 

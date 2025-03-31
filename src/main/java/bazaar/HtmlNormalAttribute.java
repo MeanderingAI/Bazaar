@@ -4,7 +4,7 @@ package bazaar;
  * The possible normal attributes to an html node
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
  */
-public enum HttpNormalAttribute {
+public enum HtmlNormalAttribute {
     ACCEPT("accept"), AUTOCOMPLETE("autocomplete"),
     CAPTURE("capture"), CROSS_ORIGIN("crossorigin"),
     DIRNAME("dirname"), DISABLED("disabled"),
@@ -17,5 +17,5 @@ public enum HttpNormalAttribute {
 
     private final String attribute;
 
-    HttpNormalAttribute(String attribute) {this.attribute = attribute;}
+    HtmlNormalAttribute(String attribute) {this.attribute = attribute;}
 }

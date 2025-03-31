@@ -5,21 +5,21 @@ import java.util.Objects;
 /**
  * A wrapper class for HttpTag to allow for custom tags
  */
-public class HttpTagWrapper {
-    private HttpTag tag;
+public class HtmlTagWrapper {
+    private HtmlTag tag;
     private String customTag;
 
     /*
      * @param tag the tag we intend to wrap
      */
-    public HttpTagWrapper(HttpTag tag) {
+    public HtmlTagWrapper(HtmlTag tag) {
         this.tag = tag;
     }
 
     /*
      * @param customElement name of a custom element
      */
-    public HttpTagWrapper(String customElement) {
+    public HtmlTagWrapper(String customElement) {
         this.customTag = customElement;
     }
 
@@ -71,7 +71,7 @@ public class HttpTagWrapper {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HttpTagWrapper that = (HttpTagWrapper) o;
+        HtmlTagWrapper that = (HtmlTagWrapper) o;
         return tag == that.tag || Objects.equals(customTag, that.customTag);
     }
 

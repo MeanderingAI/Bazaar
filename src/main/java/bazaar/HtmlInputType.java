@@ -3,7 +3,7 @@ package bazaar;
 /*
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
  */
-public enum HttpInputType {
+public enum HtmlInputType {
     BUTTON("button"), CHECKBOX("checkbox"),
     COLOR("color"), DATE("date"), DATETIMELOCAL("datetime-local"),
     EMAIL("email"), FILE("file"), HIDDEN("hidden"),
@@ -15,6 +15,6 @@ public enum HttpInputType {
 
     private final String type;
 
-    HttpInputType(String type) {this.type = type;}
+    HtmlInputType(String type) {this.type = type;}
 
 }

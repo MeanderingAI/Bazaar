@@ -4,7 +4,7 @@ package bazaar;
  * Enum for all the global attributes.
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
  */
-public enum HttpGlobalAttribute {
+public enum HtmlGlobalAttribute {
     ACCESS_KEY("access_key"),
     ANCHOR("anchor"), //Experimental Limited Support
     AUTOCAPITALIZE("autocapitalize"),
@@ -20,5 +20,5 @@ public enum HttpGlobalAttribute {
 
     private final String attribute;
 
-    HttpGlobalAttribute(String attribute) {this.attribute = attribute;}
+    HtmlGlobalAttribute(String attribute) {this.attribute = attribute;}
 }

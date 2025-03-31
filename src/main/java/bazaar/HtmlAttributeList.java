@@ -11,16 +11,16 @@ import java.util.List;
  * 
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
  */
-public class HttpAttributeList {
-    private List<HttpAttributePair> pairs;
+public class HtmlAttributeList {
+    private List<HtmlAttributePair> pairs;
 
-    public HttpAttributeList() {
+    public HtmlAttributeList() {
         this.pairs = new ArrayList<>();
     }
 
-    public HttpAttributeList(HttpAttributePair... attributePairs) {
+    public HtmlAttributeList(HtmlAttributePair... attributePairs) {
         this.pairs = new ArrayList<>();
-        for(HttpAttributePair attributePair : attributePairs) {
+        for(HtmlAttributePair attributePair : attributePairs) {
             this.pairs.add(attributePair);
         }
     }
@@ -33,12 +33,12 @@ public class HttpAttributeList {
         return this.pairs.size();
     }
 
-    public void add(HttpAttributePair attributePair) {
+    public void add(HtmlAttributePair attributePair) {
         this.pairs.add(attributePair);
     }
 
-    public boolean contains(HttpNormalAttribute attribute) {
-        for(HttpAttributePair pair : this.pairs ) {
+    public boolean contains(HtmlNormalAttribute attribute) {
+        for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return true;
             }
@@ -46,8 +46,8 @@ public class HttpAttributeList {
         return false;
     }
 
-    public boolean contains(HttpSpecialAttribute attribute) {
-        for(HttpAttributePair pair : this.pairs ) {
+    public boolean contains(HtmlSpecialAttribute attribute) {
+        for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return true;
             }
@@ -55,8 +55,8 @@ public class HttpAttributeList {
         return false;
     }
 
-    public boolean contains(HttpGlobalAttribute attribute) {
-        for(HttpAttributePair pair : this.pairs ) {
+    public boolean contains(HtmlGlobalAttribute attribute) {
+        for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return true;
             }
@@ -64,8 +64,8 @@ public class HttpAttributeList {
         return false;
     }
 
-    public String key(HttpNormalAttribute attribute) throws RuntimeException {
-        for(HttpAttributePair pair : this.pairs ) {
+    public String key(HtmlNormalAttribute attribute) throws RuntimeException {
+        for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return pair.getKey();
             }
@@ -73,8 +73,8 @@ public class HttpAttributeList {
         throw new RuntimeException("Could not find key.");
     }
 
-    public String key(HttpSpecialAttribute attribute) throws RuntimeException {
-        for(HttpAttributePair pair : this.pairs ) {
+    public String key(HtmlSpecialAttribute attribute) throws RuntimeException {
+        for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return pair.getKey();
             }
@@ -82,8 +82,8 @@ public class HttpAttributeList {
         throw new RuntimeException("Could not find key.");
     }
 
-    public String key(HttpGlobalAttribute attribute) throws RuntimeException {
-        for(HttpAttributePair pair : this.pairs ) {
+    public String key(HtmlGlobalAttribute attribute) throws RuntimeException {
+        for(HtmlAttributePair pair : this.pairs ) {
             if(pair.matchesTag(attribute)) {
                 return pair.getKey();
             }
