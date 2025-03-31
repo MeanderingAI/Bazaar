@@ -30,8 +30,8 @@ public class WelcomePage extends HtmlPage {
         HtmlNode htmlTag = new HtmlNode(HtmlTag.HTML, new HtmlAttributePair(HtmlGlobalAttribute.LANG, "en"));
 
 
-        HtmlNode head = new HtmlNode(HttpTag.HEAD);
-        HtmlNode title_tag = new HttpNode(HttpTag.TITLE, "Hello World");
+        HtmlNode head = new HtmlNode(HtmlTag.HEAD);
+        HtmlNode title_tag = new HtmlNode(HtmlTag.TITLE, "Hello World");
         head.add(title_tag);
         htmlTag.add(head);
 
