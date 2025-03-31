@@ -210,6 +210,16 @@ public class HtmlNode {
         this.single_tag = false;
     }
 
+    public void addAttribute(HtmlAttributePair attributePair) {
+        this.attributes.add(attributePair);
+    }
+
+    public void addAttribute(HtmlAttributePair... attributePairs) {
+        for(HtmlAttributePair pair : attributePairs) {
+            this.addAttribute(pair);
+        }
+    }
+
     /**
      * @param e new node to add as child
      */
