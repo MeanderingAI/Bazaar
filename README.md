@@ -15,28 +15,28 @@ Expected to be used with [Stallholder](https://github.com/MeanderingAI/Stallhold
 An example html page would then be;
 ```
 import bazaar.HtmlPage;
-import bazaar.MyHttpNodeList;
-import bazaar.HttpTag
-import bazaar.HttpAttributePair;
-import bazaar.HttpGlobalAttribute;
+import bazaar.HtmlNodeList;
+import bazaar.HtmlTag
+import bazaar.HtmlAttributePair;
+import bazaar.HtmlGlobalAttribute;
 
 public class WelcomePage extends HtmlPage {
-    private MyHttpNodeList nodes;
+    private MyHtmlNodeList nodes;
 
     public WelcomePage() {
-        nodes = new MyHttpNodeList();
-        nodes.add(new MyHttpNode(HttpTag.DOCTYPE, true));
+        nodes = new HtmlNodeList();
+        nodes.add(new HtmlNode(HttpTag.DOCTYPE, true));
 
-        MyHttpNode htmlTag = new MyHttpNode(HttpTag.HTML, new HttpAttributePair(HttpGlobalAttribute.LANG, "en"));
+        HtmlNode htmlTag = new HtmlNode(HtmlTag.HTML, new HtmlAttributePair(HtmlGlobalAttribute.LANG, "en"));
 
 
-        MyHttpNode head = new MyHttpNode(HttpTag.HEAD);
-        MyHttpNode title_tag = new MyHttpNode(HttpTag.TITLE, "Hello World");
+        HtmlNode head = new HtmlNode(HttpTag.HEAD);
+        HtmlNode title_tag = new HttpNode(HttpTag.TITLE, "Hello World");
         head.add(title_tag);
         htmlTag.add(head);
 
-        MyHttpNode body = new MyHttpNode(HttpTag.BODY);
-        MyHttpNode paragraph = new MyHttpNode(HttpTag.P, "Welcome");
+        HtmlNode body = new HtmlNode(HtmlTag.BODY);
+        HtmlNode paragraph = new HtmlNode(HtmlTag.P, "Welcome");
         body.add(paragraph);
         htmlTag.add(body);
         nodes.add(htmlTag);
