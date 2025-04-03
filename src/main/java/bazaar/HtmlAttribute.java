@@ -32,8 +32,10 @@ public enum HtmlAttribute {
     MIN_LENGTH("minlength"), MULTIPLE("multiple"),
     PATTERN("pattern"), PLACEHOLDER("placeholder"),
     READONLY("readonly"), REL("rel"), REQUIRED("required"),
-    SIZE("size"), STEP("step");
-
+    SIZE("size"), STEP("step"),
+    //unsorted
+    ACTION("action");
+    
     private final String attribute;
 
     HtmlAttribute(String attribute) {this.attribute = attribute;}

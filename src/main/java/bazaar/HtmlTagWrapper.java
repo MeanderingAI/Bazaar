@@ -37,7 +37,7 @@ public class HtmlTagWrapper {
     /**
      * @return string representation of the opening tag 
      * 
-     * "<customTag>"
+     * "customTag"
      */
     public String toOpenTag() {
         if (tag != null) {
@@ -53,7 +53,7 @@ public class HtmlTagWrapper {
 
     /**
      * @return string representation of the closing tag
-     * "</customTag>"
+     * "/customTag"
      */
     public String toCloseTag() {
         if(tag != null) {
