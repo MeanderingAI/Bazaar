@@ -34,7 +34,7 @@ public enum HtmlAttribute {
     READONLY("readonly"), REL("rel"), REQUIRED("required"),
     SIZE("size"), STEP("step"),
     //unsorted
-    ACTION("action");
+    ACTION("action"), METHOD("method");
     
     private final String attribute;
 
