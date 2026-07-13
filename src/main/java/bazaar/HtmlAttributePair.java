@@ -1,5 +1,7 @@
 package bazaar;
 
+import bazaar.HtmlAttribute;
+
 /*
  * HttpAttributePair is a wrapper for
  * HttpGlobalAttribute, HttpNormalAttribute, HttpSpecialAttribute
@@ -18,6 +20,13 @@ public class HtmlAttributePair {
         this.key = null;
     }
     
+    /**
+     * 
+     */
+    public HtmlAttributePair(String attribute, String key) {
+        this.attribute = HtmlAttribute.fromString(attribute);
+        this.key = key;
+    }
 
     /*
      * @param attribute the attribute to declare 
@@ -33,7 +42,7 @@ public class HtmlAttributePair {
     }
 
     /*
-     * @param attribute the attribute to match against
+     * @param the attribute to match against
      * @return true if the attribute matches
      */
     public boolean matchesTag(HtmlAttribute attribute) {
@@ -45,6 +54,15 @@ public class HtmlAttributePair {
      */
     public String getKey() {
         return this.key;
+    }
+
+    public String toHeaderString() {
+        String qq = this.attribute.getValue();
+        if (this.key != null) {
+            qq = qq + ": ";
+            qq = qq + this.key;
+        }
+        return qq;
     }
 
     /*

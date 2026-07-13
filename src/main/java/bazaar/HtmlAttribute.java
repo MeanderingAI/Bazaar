@@ -1,5 +1,9 @@
 package bazaar;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * The possible special attributes to an html node
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Special_attributes
@@ -34,9 +38,27 @@ public enum HtmlAttribute {
     READONLY("readonly"), REL("rel"), REQUIRED("required"),
     SIZE("size"), STEP("step"),
     //unsorted
-    ACTION("action"), METHOD("method"), VALUE("value");
+    ACTION("action"), METHOD("method"), VALUE("value"),
+    //misc
+    CONTENT_TYPE("Content-Type");
     
     private final String attribute;
 
     HtmlAttribute(String attribute) {this.attribute = attribute;}
+
+    private static final Map<String, HtmlAttribute> LOOKUP =
+        Stream.of(values())
+            .collect(Collectors.toMap(s -> s.attribute, s -> s));
+
+    public static HtmlAttribute fromString(String attribute) {
+        HtmlAttribute ha = LOOKUP.get(attribute);
+        if(ha == null) {
+            throw new IllegalArgumentException("Cannot provide mapping for this item: " + attribute);
+        }
+        return ha;
+    }
+
+    public String getValue() {
+        return this.attribute;
+    }
 }
